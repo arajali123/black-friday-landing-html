@@ -1653,6 +1653,66 @@ START: Footer CSS
   }
 }
 
+#cookie-main-wrapper {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  color: #121212;
+  background: #ffffff;
+  padding: 35px 40px;
+  border-radius: 10px;
+  font-size: 16px;
+  max-width: 495px;
+  width: 100%;
+  display: none;
+  text-align: center;
+  z-index: 9999;
+}
+
+#cookie-main-wrapper .cookie-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 18px;
+  color: #121212;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+#cookie-main-wrapper .cookie-close:hover {
+  opacity: 1;
+}
+
+#cookie-main-wrapper .cookie-desc {
+  text-align: center;
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+#cookie-main-wrapper .cookie-btn {
+  font-size: 16px;
+  background: #121212;
+  color: #ffffff;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  padding: 12px 30px;
+  line-height: 1;
+}
+
+@media (max-width: 575px) {
+  #cookie-main-wrapper {
+    padding: 35px 25px;
+    max-width: 325px;
+  }
+}
+
 /* Keyframes CSS */
 @keyframes shakeY {
   0% {

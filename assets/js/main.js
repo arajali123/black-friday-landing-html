@@ -75,3 +75,29 @@ countdown();
 const timer = setInterval(countdown, 1000);
 
 
+// Cookie Js
+document.addEventListener("DOMContentLoaded", function() {
+  const banner = document.getElementById("cookie-main-wrapper");
+  const accepted = localStorage.getItem("cookiesAccepted");
+
+  if (!accepted) {
+    banner.style.display = "block";
+  }
+
+  document.querySelector(".cookie-btn").onclick = function() {
+    localStorage.setItem("cookiesAccepted", true);
+    banner.style.display = "none";
+  };
+
+  document.querySelector(".cookie-close").onclick = function() {
+    banner.style.display = "none";
+  };
+});
+
+
+
+
+
+
+
+
