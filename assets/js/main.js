@@ -1,3 +1,4 @@
+
 // Mobile Menu Js
 $(".mobile-bar").on("click", function () {
   $(".mobile-menu-area").addClass("opened");
