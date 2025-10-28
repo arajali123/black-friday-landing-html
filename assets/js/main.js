@@ -75,25 +75,81 @@ function formatDays(days) {
 countdown();
 const timer = setInterval(countdown, 1000);
 
-
 // Cookie Js
-document.addEventListener("DOMContentLoaded", function() {
-  const banner = document.getElementById("cookie-main-wrapper");
-  const accepted = localStorage.getItem("cookiesAccepted");
-
-  if (!accepted) {
-    banner.style.display = "block";
-  }
-
-  document.querySelector(".cookie-btn").onclick = function() {
-    localStorage.setItem("cookiesAccepted", true);
-    banner.style.display = "none";
-  };
-
-  document.querySelector(".cookie-close").onclick = function() {
-    banner.style.display = "none";
-  };
+document.addEventListener('DOMContentLoaded', function() {
+    const consent = localStorage.getItem('redditCookieConsent');
+    
+    if (!consent) {
+        document.getElementById('cookie-main-wrapper').style.display = 'block';
+    } else if (consent === 'accepted') {
+        loadRedditPixel();
+    }
 });
+function acceptCookies() {
+    localStorage.setItem('redditCookieConsent', 'accepted');
+    document.getElementById('cookie-main-wrapper').style.display = 'none';
+    loadRedditPixel();
+}
+function rejectCookies() {
+    localStorage.setItem('redditCookieConsent', 'rejected');
+    document.getElementById('cookie-main-wrapper').style.display = 'none';
+}
+function loadRedditPixel() {
+    console.log('Loading Reddit Pixel for retargeting...');
+    
+    !function(w,d){
+        if(!w.rdt){
+            var p=w.rdt=function(){
+                p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)
+            };
+            p.callQueue=[];
+            var t=d.createElement("script");
+            t.src="https://www.redditstatic.com/ads/pixel.js";
+            t.async=!0;
+            var s=d.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(t,s)
+        }
+    }(window,document);
+    
+    rdt('init','a2_hwru1l12ekwb');
+    
+    rdt('track', 'PageVisit');
+}
+
+function trackViewContent() {
+  ifConsentedThen(() => { rdt('track', 'ViewContent'); });
+}
+
+function trackSearch() {
+  ifConsentedThen(() => { rdt('track', 'Search'); });
+}
+
+function trackAddToCart() {
+  ifConsentedThen(() => { rdt('track', 'AddToCart'); });
+}
+
+function trackAddToWishlist() {
+  ifConsentedThen(() => { rdt('track', 'AddToWishlist'); });
+}
+
+function trackPurchase() {
+  ifConsentedThen(() => { rdt('track', 'Purchase'); });
+}
+
+function trackLead() {
+  ifConsentedThen(() => { rdt('track', 'Lead'); });
+}
+
+function trackSignUp() {
+  ifConsentedThen(() => { rdt('track', 'SignUp'); });
+}
+
+function ifConsentedThen(action) {
+  if (localStorage.getItem('redditCookieConsent') === 'accepted') {
+    action();
+  }
+}
+
 
 
 

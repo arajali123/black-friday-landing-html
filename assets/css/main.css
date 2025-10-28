@@ -1530,7 +1530,7 @@ START: Footer CSS
 ----------------------------------------*/
 .footer-area {
   position: relative;
-  padding-bottom: 157px;
+  padding-bottom: 30px;
 }
 
 .footer-area::before {
@@ -1623,9 +1623,98 @@ START: Footer CSS
   margin-top: 24px;
 }
 
+.copyright-main-wrapper .copyright-menu {
+  margin-top: 80px;
+}
+
+.copyright-main-wrapper .copyright-menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+}
+
+.copyright-main-wrapper .copyright-menu ul li a {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+/* Cookie CSS */
+.cookie-main-wrapper {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background: #ffffff;
+  text-align: center;
+  display: none;
+  border-radius: 10px;
+  padding: 25px 20px;
+  max-width: 510px;
+  width: 100%;
+  z-index: 9999;
+}
+
+.cookie-main-wrapper .cookie-text {
+  color: #121212;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.cookie-main-wrapper .cookie-text a {
+  color: #89C61D;
+  text-decoration: underline;
+}
+
+.cookie-main-wrapper .cookie-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.cookie-main-wrapper .cookie-buttons .btn {
+  padding: 10px 25px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  transition: transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
+  min-width: 110px;
+}
+
+.cookie-main-wrapper .btn-accept {
+  background: #121212;
+  color: #ffffff;
+}
+
+.cookie-main-wrapper .btn-reject {
+  background: transparent;
+  color: #121212;
+  border: 1px solid #121212;
+}
+
+.cookie-main-wrapper.show {
+  display: block;
+  animation: slideUp 0.28s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 @media (max-width: 991px) {
   .footer-area {
-    padding-bottom: 100px;
     overflow: hidden;
   }
 
@@ -1651,65 +1740,21 @@ START: Footer CSS
     border-radius: 0px;
     padding: 35px 15px;
   }
-}
 
-#cookie-main-wrapper {
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
-  color: #121212;
-  background: #ffffff;
-  padding: 35px 40px;
-  border-radius: 10px;
-  font-size: 16px;
-  max-width: 495px;
-  width: 100%;
-  display: none;
-  text-align: center;
-  z-index: 9999;
-}
+  .copyright-main-wrapper .copyright-menu ul {
+    column-gap: 15px;
+  }
 
-#cookie-main-wrapper .cookie-close {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  font-size: 18px;
-  color: #121212;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
-}
+  .copyright-main-wrapper .copyright-menu ul li a {
+    font-size: 15px;
+  }
 
-#cookie-main-wrapper .cookie-close:hover {
-  opacity: 1;
-}
+  .copyright-main-wrapper .copyright-menu {
+    margin-top: 50px;
+  }
 
-#cookie-main-wrapper .cookie-desc {
-  text-align: center;
-  margin-bottom: 15px;
-  line-height: 1.7;
-}
-
-#cookie-main-wrapper .cookie-btn {
-  font-size: 16px;
-  background: #121212;
-  color: #ffffff;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  text-align: center;
-  padding: 12px 30px;
-  line-height: 1;
-}
-
-@media (max-width: 575px) {
-  #cookie-main-wrapper {
-    padding: 35px 25px;
-    max-width: 325px;
+  .cookie-main-wrapper {
+    max-width: 320px;
   }
 }
 

@@ -711,16 +711,32 @@
             </div>
          </div>
       </div>
+      <div class="copyright-main-wrapper">
+         <div class="copyright-menu">
+            <ul>
+               <li><a href="https://shopidevs.com/" target="_blank">Home</a></li>
+               <li><a href="https://shopidevs.com/terms-conditions/" target="_blank">Terms & Conditions</a></li>
+               <li><a href="https://shopidevs.com/privacy-policy/" target="_blank">Privacy Policy</a></li>
+            </ul>
+         </div>
+      </div>
    </footer>
    <!-- end: Footer Area -->
 
    <!-- start: Cookie Popup -->
-   <div id="cookie-main-wrapper">
-      <button class="cookie-close" aria-label="Close">✕</button>
-      <p class="cookie-desc">
-         We don’t use cookies to collect personal data. This site only uses necessary cookies for basic functionality.
-      </p>
-      <button class="cookie-btn">Accept</button>
+   <div id="cookie-main-wrapper" class="cookie-main-wrapper">
+      <div class="cookie-container">
+         <p class="cookie-text">
+            We use cookies for personalized advertising, site analytics, and improvement your experience. You can learn
+            more in our
+            <a href="https://shopidevs.com/privacy-policy" target="_blank">Privacy Policy</a>
+         </p>
+
+         <div class="cookie-buttons">
+            <button class="btn btn-accept" onclick="acceptCookies()">Accept</button>
+            <button class="btn btn-reject" onclick="rejectCookies()">Reject</button>
+         </div>
+      </div>
    </div>
    <!-- end: Cookie Popup -->
 
