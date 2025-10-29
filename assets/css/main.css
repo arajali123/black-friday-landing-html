@@ -1130,6 +1130,10 @@ START: Feature CSS
   max-width: 86px;
 }
 
+.feature-table-wrap table tbody tr td:nth-child(1) .img-5 {
+  max-width: 146px;
+}
+
 .feature-table-wrap table tbody tr td:nth-child(1) span img {
   width: 100%;
 }
