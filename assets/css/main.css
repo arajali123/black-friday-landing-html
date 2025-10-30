@@ -1052,23 +1052,35 @@ START: Feature CSS
   border-radius: 50%;
 }
 
-.feature-table-wrap table tbody tr td:nth-child(1) {
+
+
+
+.feature-table-wrap table tbody tr td:nth-child(4) {
   position: relative;
   overflow: hidden;
 }
 
-.feature-table-wrap table tbody tr td:nth-child(1) .subtitle {
-  color: #000000;
-  font-size: 14px;
-  justify-content: center;
-  font-weight: 600;
-  background: #FBC101;
-  padding: 8px 40px;
+.feature-table-wrap table tbody tr td:nth-child(4) .subtitle {
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 400;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 7px 40px;
   position: absolute;
-  top: 25px;
-  left: -75px;
+  top: 20px;
+  left: -42px;
   transform: rotate(-45deg);
+  text-align: center;
   line-height: 1;
+}
+
+.feature-table-wrap table tbody tr td:nth-child(4) .subtitle.v-1 {
+  top: 32px;
+  left: -46px;
+}
+
+.feature-table-wrap table tbody tr td:nth-child(4) .subtitle strong {
+  font-weight: 600;
 }
 
 .feature-table-wrap table tbody tr td:first-child {
@@ -1205,13 +1217,14 @@ START: Demo CSS
   top: 120px;
 }
 
+.demo-item:nth-child(4),
 .demo-item:nth-child(2) {
-  background: #EF4646;
+  background: #C81F46;
   top: 120px;
 }
 
 .demo-item:nth-child(3) {
-  background: #C81F46;
+  background: #EF4646;
   top: 120px;
 }
 
