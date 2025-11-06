@@ -1328,6 +1328,11 @@ START: Demo CSS
     margin-bottom: 30px;
   }
 
+  .demo-item {
+    position: initial;
+    top: 120px;
+  }
+
   .demo-item:nth-child(3),
   .demo-item:nth-child(2),
   .demo-item {
