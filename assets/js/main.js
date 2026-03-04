@@ -19,8 +19,8 @@ $(".body-overlay").on("click", function () {
 document.querySelector(".banner-scroll").addEventListener("click", function(e) {
   e.preventDefault();
   const headerOffset = 10;
-  const element = document.querySelector("#feature-area");
-  const offsetPosition = element.offsetTop - headerOffset + 320;
+  const element = document.querySelector("#studies-area");
+  const offsetPosition = element.offsetTop - headerOffset + 40;
 
   window.scrollTo({
     top: offsetPosition,
@@ -28,127 +28,131 @@ document.querySelector(".banner-scroll").addEventListener("click", function(e) {
   });
 });
 
+// Counter JS
+function animateCounter(counter, target, duration) {
+  const isDecimal = target % 1 !== 0;
+  let start = 0;
+  const stepTime = 20;
+  const steps = duration / stepTime;
+  const increment = target / steps;
 
-// Timer Js
-const __days = document.querySelector("#days");
-const __hours = document.querySelector("#hours");
-const __minutes = document.querySelector("#minutes");
-const __seconds = document.querySelector("#seconds");
+  const timer = setInterval(() => {
+    start += increment;
 
-const newYearEnd = "Nov 30 2025 00:00:00";
-
-function countdown() {
-  const newYearEndDate = new Date(newYearEnd);
-  const currentDate = new Date();
-
-  let totalSeconds = Math.floor((newYearEndDate - currentDate) / 1000);
-
-  if (totalSeconds <= 0) {
-    __days.textContent = "00";
-    __hours.textContent = "00";
-    __minutes.textContent = "00";
-    __seconds.textContent = "00";
-    clearInterval(timer);
-    return;
-  }
-
-  const days = Math.floor(totalSeconds / 3600 / 24);
-  const hours = Math.floor(totalSeconds / 3600) % 24;
-  const minutes = Math.floor(totalSeconds / 60) % 60;
-  const seconds = totalSeconds % 60;
-
-  __days.textContent = formatDays(days);
-  __hours.textContent = formatTime(hours);
-  __minutes.textContent = formatTime(minutes);
-  __seconds.textContent = formatTime(seconds);
-}
-
-function formatTime(time) {
-  return time.toString().padStart(2, "0");
-}
-
-function formatDays(days) {
-  const lastTwo = days % 100; 
-  return lastTwo.toString().padStart(2, "0");
-}
-
-countdown();
-const timer = setInterval(countdown, 1000);
-
-// Cookie Js
-document.addEventListener('DOMContentLoaded', function() {
-    const consent = localStorage.getItem('redditCookieConsent');
-    
-    if (!consent) {
-        document.getElementById('cookie-main-wrapper').style.display = 'block';
-    } else if (consent === 'accepted') {
-        loadRedditPixel();
+    if (start >= target) {
+      start = target;
+      clearInterval(timer);
     }
+
+    counter.textContent = isDecimal
+      ? start.toFixed(1)
+      : Math.floor(start);
+  }, stepTime);
+}
+
+let hasAnimated = false;
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const section = document.querySelector("#counter-item");
+
+  if (!section) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !hasAnimated) {
+        hasAnimated = true;
+
+        const counters = document.querySelectorAll(".counter");
+
+        counters.forEach(counter => {
+          const target = parseFloat(counter.getAttribute("data-target"));
+          animateCounter(counter, target, 2000);
+        });
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+
+  observer.observe(section);
 });
-function acceptCookies() {
-    localStorage.setItem('redditCookieConsent', 'accepted');
-    document.getElementById('cookie-main-wrapper').style.display = 'none';
-    loadRedditPixel();
-}
-function rejectCookies() {
-    localStorage.setItem('redditCookieConsent', 'rejected');
-    document.getElementById('cookie-main-wrapper').style.display = 'none';
-}
-function loadRedditPixel() {
-    console.log('Loading Reddit Pixel for retargeting...');
-    
-    !function(w,d){
-        if(!w.rdt){
-            var p=w.rdt=function(){
-                p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)
-            };
-            p.callQueue=[];
-            var t=d.createElement("script");
-            t.src="https://www.redditstatic.com/ads/pixel.js";
-            t.async=!0;
-            var s=d.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(t,s)
-        }
-    }(window,document);
-    
-    rdt('init','a2_hwru1l12ekwb');
-    
-    rdt('track', 'PageVisit');
+
+// Feature Slider Js
+if ($(".feature-slider").length > 0) {
+  var testimonial = new Swiper(".feature-slider", {
+    slidesPerView: 1,
+    spaceBetween: 25,
+    loop: true,
+    speed: 2000,
+    autoplay: {
+      delay: 2000,
+    },
+    pagination: {
+      el: ".feature-pagination",
+      clickable: true,
+    }
+  });
 }
 
-function trackViewContent() {
-  ifConsentedThen(() => { rdt('track', 'ViewContent'); });
+// Testimonial Slider Js
+if ($(".testimonial-slider").length > 0) {
+  var testimonial = new Swiper(".testimonial-slider", {
+    slidesPerView: 3,
+    spaceBetween: 25,
+    loop: true,
+    speed: 1000,
+    autoplay: {
+      delay: 1500,
+    },
+    navigation: {
+      nextEl: ".slider-next",
+      prevEl: ".slider-prev",
+    },
+    pagination: {
+      el: ".testimonial-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      576: {
+        slidesPerView: 2,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+      992: {
+        slidesPerView: 3,
+      },
+      1200: {
+        slidesPerView: 3,
+      },
+      1440: {
+        slidesPerView: 3,
+      },
+    }
+  });
 }
 
-function trackSearch() {
-  ifConsentedThen(() => { rdt('track', 'Search'); });
-}
+// Wow Js
+$(window).on("load", function () {
+  var wow = new WOW({
+    boxClass: "wow",
+    animateClass: "animated",
+    offset: 0,
+    mobile: true,
+    live: true,
+  });
+  wow.init();
+});
 
-function trackAddToCart() {
-  ifConsentedThen(() => { rdt('track', 'AddToCart'); });
-}
 
-function trackAddToWishlist() {
-  ifConsentedThen(() => { rdt('track', 'AddToWishlist'); });
-}
 
-function trackPurchase() {
-  ifConsentedThen(() => { rdt('track', 'Purchase'); });
-}
 
-function trackLead() {
-  ifConsentedThen(() => { rdt('track', 'Lead'); });
-}
 
-function trackSignUp() {
-  ifConsentedThen(() => { rdt('track', 'SignUp'); });
-}
 
-function ifConsentedThen(action) {
-  if (localStorage.getItem('redditCookieConsent') === 'accepted') {
-    action();
-  }
-}
 
 
 
