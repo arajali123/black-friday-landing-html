@@ -636,4 +636,24 @@ START: Collection CSS
   }
 }
 
+@media (max-width: 1199px) {
+  .collection-carousel-section .collection-progress {
+    width: 84%;
+  }
+
+  .collection_carousel_item .collection_carousel_text {
+    position: absolute;
+    top: 25px;
+    left: 20px;
+  }
+
+  .collection_carousel_item .collection_carousel_text .sub_title {
+    font-size: 50px;
+  }
+
+  .collection-carousel-section .collection_navigation {
+    column-gap: 15px;
+  }
+}
+
 /* !END: Collection CSS *
