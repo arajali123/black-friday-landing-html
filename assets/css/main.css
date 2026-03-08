@@ -31,7 +31,7 @@ body {
   color: #303030;
   font-weight: normal;
   word-break: break-word;
-  background-color: #ffffff;
+  background-color: #FCF1E3;
   line-height: 30px;
 }
 
@@ -294,8 +294,9 @@ ul {
  	Button CSS
 */
 
-.primary_btn {
+.primary-btn {
   display: inline-block;
+  position: relative;
   color: #2A0C00;
   background: #FFC705;
   font-family: var(--sds-ff-heading);
@@ -304,37 +305,70 @@ ul {
   text-transform: uppercase;
   border-radius: 100px;
   padding: 14px 40px;
+  transition: all 500ms ease;
+  overflow: hidden;
   line-height: 1;
 }
 
+.primary-btn:before {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  content: "";
+  bottom: 110%;
+  left: 50%;
+  background: #E43324;
+  transform: translateX(-50%);
+  transition-duration: 800ms;
+  border-radius: 100px;
+}
+
+.primary-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.primary-btn:hover span {
+  color: #ffffff;
+}
+
+.primary-btn:hover::before {
+  bottom: -40%;
+}
+
+
 /**----------------------------------------
-START: Community CSS
+START: Video Testimonial CSS
 ----------------------------------------*/
-.slider-community-section {
+.video-testimonial-slider-section {
   padding-top: 160px;
   padding-bottom: 160px;
 }
 
-.slider-community-section .flickity-prev-next-button {
+.video-testimonial-slider-section .flickity-prev-next-button {
   width: 56px;
   height: 56px;
   background: #FCF1E3;
   border: 2px solid #2A0C00;
 }
 
-.slider-community-section .flickity-prev-next-button:hover {
-  background: #FCF1E3;
+.video-testimonial-slider-section .flickity-prev-next-button:hover {
+  background-color: #2A0C00;
 }
 
-.slider-community-section .flickity-prev-next-button.next {
+.video-testimonial-slider-section .flickity-prev-next-button:hover svg path {
+  fill: #ffffff;
+}
+
+.video-testimonial-slider-section .flickity-prev-next-button.next {
   right: -28px;
 }
 
-.slider-community-section .flickity-prev-next-button.previous {
+.video-testimonial-slider-section .flickity-prev-next-button.previous {
   left: -28px;
 }
 
-.slider-community-section .flickity-prev-next-button .flickity-button-icon {
+.video-testimonial-slider-section .flickity-prev-next-button .flickity-button-icon {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -343,7 +377,7 @@ START: Community CSS
   height: 26px;
 }
 
-.slider-community-section .heading_area {
+.video-testimonial-slider-section .heading-area {
   position: relative;
   max-width: 690px;
   width: 100%;
@@ -351,7 +385,7 @@ START: Community CSS
   text-align: center;
 }
 
-.slider-community-section .heading_area .header-shape {
+.video-testimonial-slider-section .heading-area .header-shape {
   max-width: 235px;
   width: 100%;
   position: absolute;
@@ -359,20 +393,20 @@ START: Community CSS
   left: 0;
 }
 
-.slider-community-section .heading_area .sec_title {
+.video-testimonial-slider-section .heading-area .sec-title {
   position: relative;
   line-height: 1;
   z-index: 1;
 }
 
-.slider_community_item {
+.video-testimonial-item {
   position: relative;
   margin: 0 12px;
   width: calc((100% / 4) - 18px);
   overflow: hidden;
 }
 
-.slider_community_item .slider_community_content_box {
+.video-testimonial-item .video-testimonial-content-box {
   display: flex;
   align-items: center;
   column-gap: 15px;
@@ -388,7 +422,7 @@ START: Community CSS
   z-index: 2;
 }
 
-.slider_community_item .slider_community_images {
+.video-testimonial-item .video-testimonial-images {
   display: flex;
   position: relative;
   width: 100%;
@@ -396,19 +430,19 @@ START: Community CSS
   overflow: hidden;
 }
 
-.slider_community_item .slider_community_images img {
+.video-testimonial-item .video-testimonial-images img {
   width: 100%;
   height: 750px;
   object-fit: cover;
 }
 
-.slider_community_item .slider_community_content_box .slider_community_wrap {
+.video-testimonial-item .video-testimonial-content-box .video-testimonial-wrap {
   display: flex;
   align-items: center;
   column-gap: 16px;
 }
 
-.slider_community_item .slider_community_content_box .slider_community_thumb {
+.video-testimonial-item .video-testimonial-content-box .video-testimonial-thumb {
   display: flex;
   flex-shrink: 0;
   max-width: 80px;
@@ -416,14 +450,18 @@ START: Community CSS
   overflow: hidden;
 }
 
-.slider_community_item .slider_community_content_box .slider_community_text .slider_community_title {
+.video-testimonial-item .video-testimonial-content-box:hover .video-testimonial-thumb img {
+  transform: scale(1.05) rotate(2deg);
+}
+
+.video-testimonial-item .video-testimonial-content-box .video-testimonial-text .video-testimonial-title {
   font-size: 24px;
   font-weight: 400;
   text-transform: uppercase;
   line-height: 1;
 }
 
-.slider_community_item .slider_community_content_box .slider_community_text .slider_community_percent {
+.video-testimonial-item .video-testimonial-content-box .video-testimonial-text .video-testimonial-percent {
   display: block;
   font-size: 18px;
   letter-spacing: 0.3px;
@@ -431,7 +469,7 @@ START: Community CSS
   line-height: 1.3;
 }
 
-.slider_community_item .slider_community_content_box .slider_community_icons {
+.video-testimonial-item .video-testimonial-content-box .video-testimonial-icons {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -439,84 +477,147 @@ START: Community CSS
   width: 52px;
   height: 52px;
   background: #FFC705;
+  position: relative;
+  overflow: hidden;
   border-radius: 50%;
+  transition: all 0.3s ease-in-out 0s;
 }
 
+.video-testimonial-item .video-testimonial-content-box .video-testimonial-icons:hover {
+  background-color: #2A0C00;
+}
+
+.video-testimonial-item .video-testimonial-content-box .video-testimonial-icons:hover svg {
+  animation: slideInOut 1s infinite;
+}
+
+.video-testimonial-item .video-testimonial-content-box .video-testimonial-icons:hover svg path {
+  fill: #ffffff;
+}
+
+.video-testimonial-item:hover .video-testimonial-content-box {
+  bottom: 20px;
+}
+
+
 @media (max-width: 1599px) {
-  .slider-community-section .flickity-prev-next-button.next {
+  .video-testimonial-slider-section .flickity-prev-next-button.next {
     right: 15px;
   }
 
-  .slider-community-section .flickity-prev-next-button.previous {
+  .video-testimonial-slider-section .flickity-prev-next-button.previous {
     left: 15px;
   }
 
-  .slider_community_item .slider_community_content_box .slider_community_icons {
+  .video-testimonial-item .video-testimonial-content-box .video-testimonial-icons {
     width: 40px;
     height: 40px;
   }
 }
 
 @media (max-width: 1399px) {
-  .slider-community-section .flickity-prev-next-button.next {
+  .video-testimonial-slider-section .flickity-prev-next-button.next {
     right: 15px;
   }
 
-  .slider-community-section .flickity-prev-next-button.previous {
+  .video-testimonial-slider-section .flickity-prev-next-button.previous {
     left: 15px;
   }
 
-  .slider_community_item {
+  .video-testimonial-item {
     width: calc((100% / 3) - 18px);
   }
 }
 
 @media (max-width: 1199px) {
-  .slider-community-section .flickity-prev-next-button.next {
+  .video-testimonial-slider-section {
+    padding-top: 115px;
+    padding-bottom: 115px;
+  }
+
+  .video-testimonial-slider-section .flickity-prev-next-button.next {
     right: 15px;
   }
 
-  .slider-community-section .flickity-prev-next-button.previous {
+  .video-testimonial-slider-section .flickity-prev-next-button.previous {
     left: 15px;
   }
 
-  .slider_community_item {
+  .video-testimonial-item {
     width: calc((100% / 2) - 10px);
   }
 }
 
 @media (max-width: 991px) {
-  .slider_community_item {
+  .video-testimonial-slider-section {
+    padding-top: 95px;
+    padding-bottom: 95px;
+  }
+
+  .video-testimonial-item {
     width: calc((100% / 2) - 12px);
   }
 }
 
 @media (max-width: 767px) {
-  .slider_community_item {
+  .video-testimonial-slider-section .heading-area {
+    max-width: 550px;
+    margin: 0 auto 44px;
+  }
+
+  .video-testimonial-item {
     width: calc((100% / 1) - 0px);
   }
 
-  .slider_community_item .slider_community_images img {
+  .video-testimonial-slider-section .heading-area .sec-title {
+    font-size: 60px;
+  }
+
+  .video-testimonial-slider-section .heading-area .header-shape {
+    max-width: 190px;
+  }
+
+  .video-testimonial-item .video-testimonial-images img {
     height: 550px;
   }
 }
 
-/* !END: Community CSS *
+@media (max-width: 575px) {
+  .video-testimonial-slider-section .heading-area {
+    max-width: 350px;
+  }
+
+  .video-testimonial-slider-section .heading-area .sec-title {
+    font-size: 45px;
+  }
+
+  .video-testimonial-item .video-testimonial-content-box .video-testimonial-text .video-testimonial-title {
+    font-size: 22px;
+  }
+
+  .video-testimonial-slider-section .heading-area .header-shape {
+    max-width: 110px;
+    top: -10px;
+  }
+}
+
+div.flickity-enabled.is-draggable .flickity-viewport {
+  cursor: default;
+}
+
+/* !END: Video Testimonial CSS *
 
 /**----------------------------------------
-START: Collection CSS
+START: Pesto Card Block CSS
 ----------------------------------------*/
-.collection-carousel-section {
+.pesto-card-block-section {
+  position: relative;
   padding-top: 160px;
   padding-bottom: 160px;
   background: #E43324;
 }
 
-.collection-carousel-section {
-  position: relative;
-}
-
-.collection-carousel-section::after {
+.pesto-card-block-section::after {
   content: "";
   position: absolute;
   top: -16px;
@@ -530,7 +631,7 @@ START: Collection CSS
       transparent 80px);
 }
 
-.collection-carousel-section::before {
+.pesto-card-block-section::before {
   content: "";
   position: absolute;
   top: 0;
@@ -544,33 +645,33 @@ START: Collection CSS
       transparent 80px);
 }
 
-.collection-carousel-section .flickity-viewport {
+.pesto-card-block-section .flickity-viewport {
   overflow: visible;
 }
 
-.collection-carousel-section .collection-progress {
-  height: 8px;
-  background: rgba(255, 255, 255, 0.3);
-  width: 90%;
-}
-
-.collection-carousel-section .collection-progress-bar {
+.pesto-card-block-section .pesto-card-block-progress-bar {
   height: 100%;
-  background: #fff;
+  background: #FCF1E3;
   width: 0;
 }
 
-.collection_carousel_item {
+.pesto-card-block-section .pesto-card-block-progress {
+  height: 8px;
+  background: rgba(252, 241, 227, 0.5);
+  width: 90%;
+}
+
+.pesto-card-block-item {
   width: 55%;
   margin: 0 12px;
   overflow: hidden;
 }
 
-.collection_carousel_item .collection_carousel_image {
+.pesto-card-block-item .pesto-card-block-image {
   display: flex;
 }
 
-.collection_carousel_item .collection_carousel_text {
+.pesto-card-block-item .pesto-card-block-text {
   position: absolute;
   top: 40px;
   left: 35px;
@@ -579,7 +680,7 @@ START: Collection CSS
   padding: 10px 75px 25px 16px;
 }
 
-.collection_carousel_item .collection_carousel_text .sub_title {
+.pesto-card-block-item .pesto-card-block-text .pesto-card-block-sub-title {
   display: block;
   color: #2A0C00;
   font-size: 80px;
@@ -588,22 +689,23 @@ START: Collection CSS
   line-height: 1;
 }
 
-.collection_carousel_item .collection_carousel_text .sub_title.active_color {
+.pesto-card-block-item .pesto-card-block-text .pesto-card-block-sub-title.active-color {
   color: #E43324;
 }
 
-.collection_carousel_item .collection_carousel_button {
+.pesto-card-block-item .pesto-card-block-button {
+  display: flex;
   position: absolute;
   bottom: 40px;
   left: 40px;
 }
 
-.collection-carousel-section .collection_slide_wrapper {
+.pesto-card-block-section .pesto-card-block-slide-wrapper {
   position: relative;
   margin-top: 48px;
 }
 
-.collection-carousel-section .collection_navigation {
+.pesto-card-block-section .pesto-card-block-navigation {
   display: flex;
   column-gap: 24px;
   position: absolute;
@@ -612,7 +714,7 @@ START: Collection CSS
   transform: translateY(-50%);
 }
 
-.collection-carousel-section .collection_navigation button span {
+.pesto-card-block-section .pesto-card-block-navigation button span {
   display: inline-flex;
   align-items: center;
   justify-items: center;
@@ -620,40 +722,197 @@ START: Collection CSS
   height: 52px;
   background: #FCF1E3;
   border-radius: 50%;
+  transition: all 0.3s ease-in-out 0s;
 }
 
-.collection-carousel-section .collection_navigation button span img {
+.pesto-card-block-section .pesto-card-block-navigation button span:hover {
+  background-color: #2A0C00;
+}
+
+.pesto-card-block-section .pesto-card-block-navigation button span svg {
+  width: 18px;
+  height: 18px;
   margin: 0 auto;
 }
 
+.pesto-card-block-section .pesto-card-block-navigation button span:hover svg path {
+  fill: #ffffff;
+}
+
 @media (max-width: 1399px) {
-  .collection-carousel-section .collection-progress {
+  .pesto-card-block-section .pesto-card-block-progress {
     width: 85%;
   }
 
-  .collection_carousel_item .collection_carousel_text .sub_title {
+  .pesto-card-block-item .pesto-card-block-text .pesto-card-block-sub-title {
     font-size: 60px;
   }
 }
 
 @media (max-width: 1199px) {
-  .collection-carousel-section .collection-progress {
+  .pesto-card-block-section {
+    padding-top: 115px;
+    padding-bottom: 115px;
+  }
+
+  .pesto-card-block-section .pesto-card-block-progress {
     width: 84%;
   }
 
-  .collection_carousel_item .collection_carousel_text {
+  .pesto-card-block-item .pesto-card-block-text {
     position: absolute;
     top: 25px;
     left: 20px;
   }
 
-  .collection_carousel_item .collection_carousel_text .sub_title {
+  .pesto-card-block-item .pesto-card-block-text .pesto-card-block-sub-title {
     font-size: 50px;
   }
 
-  .collection-carousel-section .collection_navigation {
+  .pesto-card-block-section .pesto-card-block-navigation {
     column-gap: 15px;
   }
 }
 
-/* !END: Collection CSS *
+@media (max-width: 991px) {
+  .pesto-card-block-section {
+    padding-top: 95px;
+    padding-bottom: 95px;
+  }
+
+  .pesto-card-block-item .pesto-card-block-text .pesto-card-block-sub-title {
+    font-size: 40px;
+  }
+
+  .pesto-card-block-item .pesto-card-block-text {
+    top: 20px;
+    left: 15px;
+    padding: 10px 30px 25px 16px;
+  }
+
+  .pesto-card-block-item .pesto-card-block-button {
+    bottom: 15px;
+    left: 15px;
+  }
+
+  .pesto-card-block-section .pesto-card-block-progress {
+    width: 80%;
+  }
+}
+
+@media (max-width: 767px) {
+  .pesto-card-block-item {
+    width: 90%;
+  }
+
+  .pesto-card-block-section .pesto-card-block-navigation button span {
+    width: 42px;
+    height: 42px;
+  }
+
+  .pesto-card-block-section .pesto-card-block-navigation button span img {
+    max-width: 8px;
+  }
+
+  .pesto-card-block-section .pesto-card-block-navigation {
+    column-gap: 10px;
+  }
+
+  .pesto-card-block-section .pesto-card-block-progress {
+    width: 78%;
+  }
+
+}
+
+@media (max-width: 575px) {
+  .pesto-card-block-item {
+    width: 95%;
+  }
+
+  .pesto-card-block-item .pesto-card-block-text .pesto-card-block-sub-title {
+    font-size: 30px;
+  }
+
+  .pesto-card-block-section .pesto-card-block-progress {
+    width: 65%;
+  }
+}
+
+@keyframes slideInOut {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(40px);
+  }
+
+  50.001% {
+    transform: translateX(-40px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* !END: Pesto Card Block CSS *
+
+/**----------------------------------------
+START: Pesto Achievement CSS
+----------------------------------------*/
+.pesto-achievement-section {
+  position: relative;
+  padding-top: 160px;
+  padding-bottom: 160px;
+  overflow: hidden;
+}
+
+.pesto-achievement-area {
+  position: relative;
+}
+
+.pesto-achievement-area::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 40px;
+  width: 97%;
+  height: 16px;
+  background: repeating-linear-gradient(to right,
+      #2A0C00 0px,
+      #2A0C00 43px,
+      transparent 43px,
+      transparent 82px);
+}
+
+.pesto-achievement-area::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  background: repeating-linear-gradient(to right,
+      #2A0C00 0px,
+      #2A0C00 40px,
+      transparent 40px,
+      transparent 82px);
+}
+
+.pesto-achievement-wrapper {
+  padding-top: 180px;
+}
+
+.pesto-achievement-item {
+  background: #F6E2C8;
+  border: 1px solid #2A0C00;
+}
+
+.pesto-achievement-item .pesto-achievement-text .pesto-achievement-title {
+  color: #E43324;
+  font-size: 56px;
+  line-height: 1;
+}
+
+/* !END: Pesto Achievement CSS *
