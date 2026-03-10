@@ -1159,6 +1159,7 @@ START: Pesto Achievement CSS
 
   .pesto-achievement-item {
     width: 100%;
+    margin: 0 24px;
   }
 
   .pesto-achievement-item:nth-child(1) {
