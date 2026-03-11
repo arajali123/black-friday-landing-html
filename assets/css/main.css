@@ -825,6 +825,15 @@ START: Pesto Card Block CSS
 }
 
 @media (max-width: 575px) {
+  .pesto-card-block-section::after {
+    top: -10px;
+    height: 10px;
+  }
+
+  .pesto-card-block-section::before {
+    height: 10px;
+  }
+
   .pesto-card-block-item {
     width: 95%;
   }
@@ -1053,7 +1062,6 @@ START: Pesto Achievement CSS
   }
 }
 
-
 @media (max-width: 1199px) {
   .pesto-achievement-section {
     padding-top: 140px;
@@ -1179,6 +1187,16 @@ START: Pesto Achievement CSS
 @media (max-width: 575px) {
   .pesto-achievement-wrapper {
     padding-top: 130px;
+  }
+
+  .pesto-achievement-area::after {
+    width: 88%;
+    height: 10px;
+  }
+
+  .pesto-achievement-area::before {
+    top: -10px;
+    height: 10px;
   }
 
   .pesto-achievement-item .pesto-achievement-icons span {
@@ -1462,6 +1480,10 @@ START: Testimonial Block Three CSS
 }
 
 @media (max-width: 767px) {
+  .testimonial-block-three-section .heading-area .sec-title {
+    font-size: 65px;
+  }
+
   .testimonial-block-three-item {
     margin: 0 100px;
   }
@@ -1469,7 +1491,7 @@ START: Testimonial Block Three CSS
 
 @media (max-width: 575px) {
   .testimonial-block-three-section .heading-area .sec-title {
-    font-size: 40px;
+    font-size: 45px;
   }
 
   .testimonial-block-three-section .flickity-prev-next-button {
@@ -1644,3 +1666,529 @@ START: Pesto Scrolling Images CSS
 }
 
 /* !END: Pesto Scrolling Images CSS *
+
+/**----------------------------------------
+START: Pesto Feature Block CSS
+----------------------------------------*/
+.pesto-feature-block-section {
+  position: relative;
+  padding-top: 160px;
+  padding-bottom: 160px;
+  background: #FCF1E3;
+}
+
+.pesto-feature-block-section .clip-shapes {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #F6E2C8;
+  clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 100%, 0 0);
+}
+
+.pesto-feature-block-section .feature-shapes {
+  position: absolute;
+  right: 20%;
+  top: 0px;
+  max-width: 365px;
+  width: 100%;
+}
+
+.pesto-feature-block-section .heading-area {
+  position: relative;
+  margin-bottom: 120px;
+  z-index: 1;
+}
+
+.pesto-feature-block-section .heading-area .sec-title {
+  font-size: 120px;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.pesto-feature-block-main-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 25px;
+  row-gap: 45px;
+  justify-content: space-between;
+}
+
+.pesto-feature-block-item {
+  display: flex;
+  column-gap: 24px;
+}
+
+.pesto-feature-block-item .pesto-feature-block-icons span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+}
+
+.pesto-feature-block-item .pesto-feature-block-icons span::before {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  right: 0;
+  width: 67px;
+  height: 67px;
+  background: #FFC705;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.pesto-feature-block-item .pesto-feature-block-content .pesto-feature-shape {
+  display: block;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.pesto-feature-block-item .pesto-feature-block-content .pesto-feature-shape::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 40px;
+  width: 110px;
+  height: 8px;
+  background: repeating-linear-gradient(to right,
+      #E43324 0px,
+      #E43324 31px,
+      transparent 31px,
+      transparent 70px);
+}
+
+.pesto-feature-block-item .pesto-feature-block-content .pesto-feature-shape::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 210px;
+  height: 8px;
+  background: repeating-linear-gradient(to right,
+      #E43324 0px,
+      #E43324 40px,
+      transparent 40px,
+      transparent 70px);
+}
+
+.pesto-feature-block-item .pesto-feature-block-content .pesto-feature-block-title {
+  font-size: 40px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.pesto-feature-block-item .pesto-feature-block-content .pesto-feature-block-sub-title {
+  display: block;
+  font-size: 24px;
+  letter-spacing: 0.02em;
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+@media (max-width: 1599px) {
+  .pesto-feature-block-item .pesto-feature-block-content .pesto-feature-block-title {
+    font-size: 30px;
+  }
+
+  .pesto-feature-block-item .pesto-feature-block-content .pesto-feature-block-sub-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1399px) {
+  .pesto-feature-block-section .feature-shapes {
+    right: 10%;
+  }
+
+  .pesto-feature-block-item .pesto-feature-block-icons span {
+    width: 50px;
+    height: 50px;
+  }
+
+  .pesto-feature-block-item .pesto-feature-block-icons span::before {
+    bottom: -6px;
+    right: -6px;
+    width: 45px;
+    height: 45px;
+  }
+
+  .pesto-feature-block-item .pesto-feature-block-content .pesto-feature-shape {
+    margin-bottom: 20px;
+  }
+
+  .pesto-feature-block-item .pesto-feature-block-content .pesto-feature-block-title {
+    font-size: 30px;
+  }
+
+  .pesto-feature-block-item .pesto-feature-block-content .pesto-feature-block-sub-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .pesto-feature-block-section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  .pesto-feature-block-item .pesto-feature-block-content .pesto-feature-shape::before {
+    width: 170px;
+  }
+
+  .pesto-feature-block-section .heading-area {
+    margin-bottom: 80px;
+  }
+
+  .pesto-feature-block-section .feature-shapes {
+    max-width: 295px;
+  }
+
+  .pesto-feature-block-section .heading-area .sec-title {
+    font-size: 95px;
+  }
+}
+
+@media (max-width: 991px) {
+  .pesto-feature-block-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .pesto-feature-block-section .feature-shapes {
+    max-width: 225px;
+  }
+
+  .pesto-feature-block-section .heading-area .sec-title {
+    font-size: 75px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pesto-feature-block-section .heading-area {
+    margin-bottom: 50px;
+  }
+
+  .pesto-feature-block-section .heading-area .sec-title {
+    font-size: 65px;
+  }
+
+  .pesto-feature-block-section .feature-shapes {
+    max-width: 160px;
+  }
+
+  .pesto-feature-block-item .pesto-feature-block-icons span {
+    width: 45px;
+    height: 45px;
+  }
+
+  .pesto-feature-block-item .pesto-feature-block-content .pesto-feature-shape::before {
+    background: repeating-linear-gradient(to right,
+        #E43324 0px,
+        #E43324 30px,
+        transparent 30px,
+        transparent 60px);
+  }
+
+  .pesto-feature-block-item .pesto-feature-block-content .pesto-feature-shape::after {
+    left: 30px;
+    background: repeating-linear-gradient(to right,
+        #E43324 0px,
+        #E43324 30px,
+        transparent 30px,
+        transparent 60px);
+  }
+
+  .pesto-feature-block-item .pesto-feature-block-content .pesto-feature-block-title {
+    font-size: 25px;
+  }
+
+  .pesto-feature-block-item .pesto-feature-block-content .pesto-feature-block-sub-title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 575px) {
+  .pesto-feature-block-section .clip-shapes {
+    clip-path: polygon(0 0, 100% 8%, 100% 100%, 0 100%, 0 0);
+  }
+
+  .pesto-feature-block-section .feature-shapes {
+    max-width: 110px;
+  }
+
+  .pesto-feature-block-section .heading-area .sec-title {
+    font-size: 45px;
+  }
+
+  .pesto-feature-block-main-wrapper {
+    flex-direction: column;
+  }
+}
+
+/* !END: Pesto Feature Block CSS *
+
+/**----------------------------------------
+START: Pesto Next Footer CSS
+----------------------------------------*/
+.pesto-next-footer-top-area {
+  padding-top: 160px;
+  padding-bottom: 80px;
+  background: #2A0C00;
+}
+
+.pesto-next-footer-main-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  column-gap: 35px;
+  row-gap: 40px;
+  justify-content: space-between;
+}
+
+.pesto-next-footer-content-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  column-gap: 120px;
+  row-gap: 30px;
+}
+
+.footer-widget .widget-title {
+  margin-bottom: 32px;
+}
+
+.footer-widget .widget-title h4 {
+  color: #FFC705;
+  font-size: 56px;
+  line-height: 1;
+}
+
+.footer-widget.social-widget .footer-widget-desc {
+  font-size: 24px;
+  color: #FCF1E3;
+  letter-spacing: 0.02em;
+  max-width: 420px;
+  width: 100%;
+  line-height: 1.3;
+}
+
+.footer-widget.social-widget .footer-widget-social {
+  margin-top: 40px;
+}
+
+.footer-widget.social-widget .footer-widget-social ul {
+  display: flex;
+  align-items: center;
+  column-gap: 32px;
+}
+
+.footer-widget.social-widget .footer-widget-social ul li a {
+  display: flex;
+}
+
+.footer-widget.schedule-widget .widget-content .schedule-list li {
+  margin-bottom: 12px;
+}
+
+.footer-widget.schedule-widget .widget-content .schedule-list li:last-child {
+  margin-bottom: 0;
+}
+
+.footer-widget.schedule-widget .widget-content .schedule-list li span {
+  font-size: 24px;
+  color: #FCF1E3;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+.footer-widget.links-widget .widget-content .links-list li {
+  margin-bottom: 12px;
+}
+
+.footer-widget.links-widget .widget-content .links-list li:last-child {
+  margin-bottom: 0;
+}
+
+.footer-widget.links-widget .widget-content .links-list li a {
+  font-size: 24px;
+  color: #FCF1E3;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+.footer-widget.contactinfo-widget .widget-content .contactinfo-list li {
+  font-size: 24px;
+  color: #FCF1E3;
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.footer-widget.contactinfo-widget .widget-content .contactinfo-list li:last-child {
+  margin-bottom: 0;
+}
+
+.footer-logo {
+  margin-top: 40px;
+}
+
+.footer-logo a {
+  display: inline-block;
+}
+
+.pesto-copyright-area {
+  background: #FFC705;
+  padding: 20px 0;
+}
+
+.pesto-copyright-main-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 15px;
+  row-gap: 15px;
+  justify-content: space-between;
+}
+
+.pesto-copyright-main-wrapper .pesto-copyright-left-content .copyright-desc {
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+
+}
+
+.pesto-copyright-main-wrapper .pesto-copyright-right-content {
+  display: flex;
+  align-items: center;
+  column-gap: 40px;
+  row-gap: 15px;
+}
+
+.pesto-copyright-main-wrapper .pesto-copyright-right-content .footer-paypal {
+  display: flex;
+}
+
+.pesto-copyright-main-wrapper .pesto-copyright-right-content .select-box {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+  font-size: 18px;
+  background: #FCF1E3;
+  border-radius: 100px;
+  border: 2px solid #2A0C00;
+  padding: 9px 12px 9px 16px;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+@media (max-width: 1599px) {
+  .pesto-next-footer-content-box {
+    column-gap: 50px;
+  }
+}
+
+@media (max-width: 1399px) {
+  .footer-widget .widget-title h4 {
+    font-size: 46px;
+  }
+
+  .footer-widget.social-widget .footer-widget-desc {
+    font-size: 20px;
+    max-width: 325px;
+  }
+
+  .footer-widget.contactinfo-widget .widget-content .contactinfo-list li,
+  .footer-widget.links-widget .widget-content .links-list li a,
+  .footer-widget.schedule-widget .widget-content .schedule-list li span {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .pesto-next-footer-top-area {
+    padding-top: 120px;
+  }
+
+  .pesto-next-footer-content-box {
+    column-gap: 30px;
+  }
+
+  .footer-widget .widget-title h4 {
+    font-size: 36px;
+  }
+
+  .footer-widget.social-widget .footer-widget-desc {
+    font-size: 20px;
+    max-width: 285px;
+  }
+
+  .footer-widget.contactinfo-widget .widget-content .contactinfo-list li,
+  .footer-widget.links-widget .widget-content .links-list li a,
+  .footer-widget.schedule-widget .widget-content .schedule-list li span {
+    font-size: 18px;
+  }
+
+  .pesto-copyright-main-wrapper .pesto-copyright-right-content {
+    column-gap: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  .pesto-next-footer-top-area {
+    padding-top: 80px;
+  }
+
+  .footer-widget.social-widget .footer-widget-desc {
+    max-width: 100%;
+  }
+
+  .footer-widget.social-widget .footer-widget-social {
+    margin-top: 25px;
+  }
+
+  .pesto-copyright-main-wrapper {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .pesto-copyright-main-wrapper {
+    flex-direction: column;
+  }
+
+  .pesto-next-footer-content-box {
+    column-gap: 75px;
+  }
+
+  .pesto-copyright-main-wrapper .pesto-copyright-right-content {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 575px) {
+  .pesto-next-footer-top-area {
+    padding-bottom: 50px;
+  }
+
+  .footer-widget .widget-title {
+    margin-bottom: 18px;
+  }
+
+  .pesto-copyright-main-wrapper .pesto-copyright-left-content .copyright-desc {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .pesto-copyright-main-wrapper .pesto-copyright-right-content .select-box {
+    font-size: 16px;
+  }
+}
+
+/* !END: Pesto Next Footer CSS *
