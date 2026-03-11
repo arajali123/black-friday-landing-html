@@ -2192,3 +2192,21 @@ START: Pesto Next Footer CSS
 }
 
 /* !END: Pesto Next Footer CSS *
+
+/**----------------------------------------
+START: Pesto Bundle CSS
+----------------------------------------*/
+.pesto-bundel-area {
+  padding-top: 160px;
+}
+
+.pesto-bundel-area .heading-area {
+  text-align: center;
+}
+
+.pesto-bundel-area .heading-area .sec-title {
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* !END: Pesto Bundle CSS *
