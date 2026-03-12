@@ -24,6 +24,22 @@ document.querySelector('.flickity-next').addEventListener('click', function() {
 });
 
 
+// Quantity Js
+const minus = document.querySelector(".minus");
+const plus = document.querySelector(".plus");
+const input = document.querySelector(".qty-input");
+
+minus.onclick = () => {
+  if(input.value > 1){
+    input.value--;
+  }
+}
+
+plus.onclick = () => {
+  input.value++;
+}
+
+
 
 
 
