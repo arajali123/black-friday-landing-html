@@ -341,7 +341,35 @@ ul {
   text-transform: uppercase;
   border-radius: 100px;
   padding: 14px 25px;
+  position: relative;
+  overflow: hidden;
   line-height: 1;
+}
+
+.add-cart-btn::before {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  content: "";
+  bottom: 110%;
+  left: 50%;
+  background: #FFC705;
+  transform: translateX(-50%);
+  transition-duration: 800ms;
+  border-radius: 100px;
+}
+
+.add-cart-btn.btn-2::before {
+  background: #E43324;
+}
+
+.add-cart-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.add-cart-btn:hover::before {
+  bottom: -40%;
 }
 
 .add-cart-btn:hover {
@@ -2281,7 +2309,7 @@ START: Pesto Bundle CSS
   display: flex;
   align-items: start;
   justify-content: space-between;
-  column-gap: 15px;
+  column-gap: 10px;
 }
 
 .pesto-bundle-item .pesto-bundle-content .pesto-bundle-text .pesto-bundle-title {
@@ -2324,7 +2352,7 @@ START: Pesto Bundle CSS
   top: 0;
   max-width: 640px;
   width: 100%;
-  max-height: calc(100vh - -210px);
+  max-height: 915px;
   border-top: 1px solid #2A0C00;
   border-left: 1px solid #2A0C00;
 }
@@ -2531,6 +2559,16 @@ START: Pesto Bundle CSS
   }
 }
 
+@media (max-width: 1399px) {
+  .pesto-bundle-item .pesto-bundle-content .pesto-bundle-text .pesto-bundle-title {
+    font-size: 26px;
+  }
+
+  .pesto-bundle-item .pesto-bundle-content .pesto-bundle-badge {
+    font-size: 15px;
+  }
+}
+
 @media (max-width: 1199px) {
   .pesto-bundle-area {
     padding-top: 120px;
@@ -2625,6 +2663,10 @@ START: Pesto Bundle CSS
     border-bottom: none;
   }
 
+  .pesto-bundle-item .pesto-bundle-images {
+    margin: 10px auto 10px;
+  }
+
 }
 
 @media (max-width: 575px) {
@@ -2672,6 +2714,11 @@ START: Pesto Bundle CSS
 
   .pesto-bundle-item .pesto-bundle-content .pesto-bundle-text .pesto-bundle-title {
     font-size: 25px;
+  }
+
+  .pesto-bundle-inner-item .pesto-bundle-quantity .quantity-item button,
+  .pesto-bundle-inner-item .pesto-bundle-quantity .quantity-item input {
+    font-size: 18px;
   }
 }
 
