@@ -2723,3 +2723,142 @@ START: Pesto Bundle CSS
 }
 
 /* !END: Pesto Bundle CSS *
+
+/**----------------------------------------
+START: About Sect Rif CSS
+----------------------------------------*/
+.about-sect-rif-section {
+  position: relative;
+  height: 900px;
+  overflow: hidden;
+}
+
+.about-sect-rif-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-sect-rif-main-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 485px;
+  width: 100%;
+}
+
+.about-sect-rif-item {
+  position: relative;
+  background: #FCF1E3;
+  padding: 40px 40px;
+  transform: rotate(-2deg);
+  z-index: 1;
+}
+
+.about-sect-rif-item .about-sect-rif-tile {
+  font-size: 80px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.about-sect-rif-item .about-sect-rif-shape {
+  position: relative;
+  margin-top: 35px;
+  padding-bottom: 35px;
+}
+
+.about-sect-rif-item .about-sect-rif-shape::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 40px;
+  width: 110px;
+  height: 8px;
+  background: repeating-linear-gradient(to right,
+      #E43324 0px,
+      #E43324 31px,
+      transparent 31px,
+      transparent 70px);
+}
+
+.about-sect-rif-item .about-sect-rif-shape::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 185px;
+  height: 8px;
+  background: repeating-linear-gradient(to right,
+      #E43324 0px,
+      #E43324 40px,
+      transparent 40px,
+      transparent 70px);
+}
+
+.about-sect-rif-item .about-sect-rif-desc {
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  max-width: 335px;
+  width: 100%;
+  position: relative;
+  line-height: 1.3;
+  z-index: 1;
+}
+
+.about-sect-rif-button {
+  display: flex;
+  margin-top: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.about-sect-rif-main-wrapper .about-sect-rif-shapes {
+  position: absolute;
+  right: -95px;
+  bottom: -25px;
+  max-width: 340px;
+  transform: rotate(-12deg);
+  width: 100%;
+}
+
+@media (max-width: 1199px) {
+  .about-sect-rif-section {
+    height: 795px;
+  }
+}
+
+@media (max-width: 991px) {
+  .about-sect-rif-section {
+    height: 725px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-sect-rif-section {
+    height: 695px;
+  }
+
+  .about-sect-rif-main-wrapper {
+    max-width: 450px;
+  }
+
+  .about-sect-rif-item {
+    padding: 35px 20px;
+  }
+
+  .about-sect-rif-item .about-sect-rif-tile {
+    font-size: 65px;
+  }
+
+  .about-sect-rif-main-wrapper .about-sect-rif-shapes {
+    right: -50px;
+    bottom: -15px;
+    max-width: 240px;
+  }
+}
+
+/* !END: About Sect Rif CSS *
