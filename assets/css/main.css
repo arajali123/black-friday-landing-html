@@ -2870,6 +2870,11 @@ START: About Sect Rif CSS
     max-width: 315px;
   }
 
+  .about-sect-rif-item .about-sect-rif-shape {
+    margin-top: 30px;
+    padding-bottom: 30px;
+  }
+
   .about-sect-rif-item .about-sect-rif-tile {
     font-size: 45px;
   }
